@@ -55,8 +55,51 @@
             </tbody>
           </table>
 
+          <!-- Open Source Projects -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:20px;line-height:1.0;">
+            <tbody>
+              <tr>
+                <td colspan="2" style="padding:20px 20px 12px 20px;">
+                  <h2>Code Releases</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0px 16px 0px 20px;width:16%;vertical-align:top;white-space:nowrap;">
+                  <em>CVPR 2024</em>
+                </td>
+                <td style="padding:0px 20px 0px 0px;vertical-align:top;">
+                  <a href="https://github.com/facebookresearch/goliath">Relightable Gaussian Codec Avatars</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0px 16px 0px 20px;vertical-align:top;white-space:nowrap;">
+                  <em>SIGGRAPH 2023</em>
+                </td>
+                <td style="padding:0px 20px 0px 0px;vertical-align:top;">
+                  <a href="https://github.com/facebookresearch/CT2Hair">CT2Hair: High-Fidelity 3D Hair Modeling using Computed Tomography</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0px 16px 0px 20px;vertical-align:top;white-space:nowrap;">
+                  <em>EGSR 2023</em>
+                </td>
+                <td style="padding:0px 20px 0px 0px;vertical-align:top;">
+                  <a href="https://github.com/facebookresearch/HairMSNN">Accelerating Hair Rendering by Learning High-Order Scattered Radiance</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0px 16px 20px 20px;vertical-align:top;white-space:nowrap;">
+                  <em>CVPR 2019</em>
+                </td>
+                <td style="padding:0px 20px 20px 0px;vertical-align:top;">
+                  <a href="https://github.com/facebookresearch/multiview_hair_capture">Strand-accurate Multi-view Hair Capture</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
           <!-- Publications -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:30px;">
             <tbody>
               <tr>
                 <td colspan="2" style="padding:20px;width:100%;vertical-align:middle">
@@ -595,7 +638,9 @@
                   <em>IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2019 &nbsp; <font color="red"><strong>(Oral Presentation)</strong></font>
                   <br>
                   <a href="https://vclab.kaist.ac.kr/cvpr2019p1/Nam_Strand-Accurate_Multi-View_Hair_Capture_CVPR_2019_paper.pdf">pdf</a> /
-                  <a href="https://youtu.be/RExALS8qIfo">video</a>
+                  <a href="https://youtu.be/RExALS8qIfo">video</a> /
+                  <a href="https://giljoonam.github.io/cvpr2019/">project page</a> /
+                  <a href="https://github.com/facebookresearch/multiview_hair_capture">code</a>
                 </td>
               </tr>
 
@@ -715,5 +760,13 @@
       </tr>
     </tbody>
   </table>
+  <script>
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      if (!a.getAttribute('href').startsWith('#')) {
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  </script>
 </body>
 </html>
