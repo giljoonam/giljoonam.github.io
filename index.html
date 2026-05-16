@@ -7,6 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <style>
+    .pub-tag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgb(220,30,30);
+      color: #fff;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 0;
+      line-height: 1.4;
+      pointer-events: none;
+      letter-spacing: 0.04em;
+    }
+  </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-565CVS9H2F"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -761,6 +777,50 @@
     </tbody>
   </table>
   <script>
+    // Venue tag overlays on thumbnails
+    (function () {
+      var tagMap = [
+        [/CVPR/,                          'CVPR'],
+        [/ICCV/,                          'ICCV'],
+        [/SIGGRAPH Asia/,                 'SIGAsia'],
+        [/SIGGRAPH/,                      'SIGGRAPH'],
+        [/NeurIPS/,                       'NeurIPS'],
+        [/ECCV/,                          'ECCV'],
+        [/3DV/,                           '3DV'],
+        [/EGSR/,                          'EGSR'],
+        [/ICRA/,                          'ICRA'],
+        [/BMVC/,                          'BMVC'],
+        [/CGF/,                           'CGF'],
+        [/Neural Networks/,               'NN'],
+        [/Instrumentation/,               'IEEE TIM'],
+        [/Computer Graphics and App/,     'IEEE CGA'],
+        [/Preprint/,                      'Preprint'],
+      ];
+
+      document.querySelectorAll('tbody tr').forEach(function (row) {
+        var img = row.querySelector('td:first-child img');
+        var em  = row.querySelector('td:last-child em');
+        if (!img || !em) return;
+
+        var venue = em.textContent;
+        var tag = null;
+        for (var i = 0; i < tagMap.length; i++) {
+          if (tagMap[i][0].test(venue)) { tag = tagMap[i][1]; break; }
+        }
+        if (!tag) return;
+
+        var wrapper = document.createElement('div');
+        wrapper.style.cssText = 'position:relative;display:inline-block;';
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+
+        var span = document.createElement('span');
+        span.className = 'pub-tag';
+        span.textContent = tag;
+        wrapper.appendChild(span);
+      });
+    })();
+
     document.querySelectorAll('a[href]').forEach(function (a) {
       if (!a.getAttribute('href').startsWith('#')) {
         a.setAttribute('target', '_blank');
